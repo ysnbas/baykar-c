@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: linear-gradient(#fffbeb 100%, #ffffff 100%);
+  font-family: "roboto", sans-serif;
+}

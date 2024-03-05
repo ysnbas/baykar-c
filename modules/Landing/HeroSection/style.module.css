@@ -1,0 +1,15 @@
+.shoesImage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  object-fit: contain;
+}
+.picture {
+  position: absolute;
+  top: 20px;
+  left: 32px;
+  background: #fbbf24;
+  width: 367px;
+  height: 372px;
+  border-radius: 50px;
+}

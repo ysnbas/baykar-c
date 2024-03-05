@@ -1,0 +1,11 @@
+.icon {
+  /* icon / iconoir / tunnel */
+
+  width: 64px;
+  height: 64px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
