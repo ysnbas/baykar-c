@@ -12,3 +12,59 @@
 .suggestionContainer {
   background: #0f172a;
 }
+.waveBrown,
+.waveDarkYellow,
+.waveYellow {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.waveBrown {
+  z-index: -1;
+}
+.waveYellow {
+  z-index: -2;
+}
+.waveDarkYellow {
+  z-index: -3;
+}
+
+.waveBrown svg {
+  position: relative;
+  display: block;
+  width: calc(184% + 1.3px);
+  height: 172px;
+  transform: rotateY(180deg);
+}
+
+.waveBrown .shapeFill {
+  fill: #78350f;
+}
+
+.waveDarkYellow svg {
+  position: relative;
+  display: block;
+  width: calc(240% + 1.3px);
+  height: 445px;
+  transform: rotateY(180deg);
+}
+
+.waveDarkYellow .shapeFill {
+  fill: #fde68a;
+}
+
+.waveYellow svg {
+  position: relative;
+  display: block;
+  width: calc(240% + 1.3px);
+  height: 250px;
+  transform: rotateY(180deg);
+}
+
+.waveYellow .shapeFill {
+  fill: #fef3c7;
+}
