@@ -7,10 +7,56 @@
   height: 491px;
   border-radius: 10px;
   border: 1px;
+  z-index: 1;
+  position: relative;
 }
-.card img{
-    width: 394px;
-    height: 220px;
-    border-radius: 4px;
-    object-fit: cover;
+.card img {
+  width: 394px;
+  height: 220px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.pink,
+.blue,
+.orange,
+.green,
+.purple {
+  position: absolute;
+  border-radius: 50px;
+  opacity: 75%;
+}
+.pink {
+  background: #be185d;
+  width: 271px;
+  height: 271px;
+  top: 176px;
+  left: -35px;
+}
+.blue {
+  width: 161px;
+  height: 161px;
+  top: -31px;
+  left: -20px;
+  background: #0369a1;
+}
+.orange {
+  width: 130px;
+  height: 130px;
+  top: 294px;
+  left: 280px;
+  background: #b45309;
+}
+.green {
+  width: 232px;
+  height: 232px;
+  top: 33px;
+  left: 205px;
+  background: #15803d;
+}
+.purple {
+  width: 202px;
+  height: 202px;
+  top: 310px;
+  left: 102px;
+  background: #a21caf;
 }

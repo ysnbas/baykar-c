@@ -5,6 +5,8 @@ import Header from "@/modules/Landing/Header";
 import HeroSection from "@/modules/Landing/HeroSection";
 import FeaturesSection from "@/modules/Landing/FeaturesSection";
 import SuggestionSection from "@/modules/Landing/SuggestionSection";
+import ReasonSection from "@/modules/Landing/ReasonSection";
+import CommentSection from "@/modules/Landing/CommentSection";
 
 export default function LandingPage() {
   return (
@@ -17,6 +19,12 @@ export default function LandingPage() {
       </div>
       <div className={styles.suggestionContainer}>
         <SuggestionSection />
+      </div>
+      <div>
+        <ReasonSection />
+      </div>
+      <div>
+        <CommentSection />
       </div>
     </div>
   );

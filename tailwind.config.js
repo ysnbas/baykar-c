@@ -28,10 +28,13 @@ module.exports = {
     colors: {
       primary: "#78350F",
       white: "#ffffff",
+      grey: "#475569",
     },
     height: {
       heroHeight: "583px",
       suggestionHeight: "776px",
+      reasonHeight: "816px",
+      commentHeight: "732px",
     },
   },
   plugins: [],
