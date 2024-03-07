@@ -5,9 +5,9 @@
   object-fit: contain;
 }
 .picture {
-  position: absolute;
+  /* position: absolute;
   top: 20px;
-  left: 32px;
+  left: 32px; */
   background: #fbbf24;
   width: 367px;
   height: 372px;

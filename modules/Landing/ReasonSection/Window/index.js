@@ -4,16 +4,16 @@ import styles from "./style.module.css";
 export default function Window({ children, ...props }) {
   const { img, size, playBtn } = props;
   return (
-    <div className={`${styles.window} relative ${size}`}>
+    <div className={`${styles.window} relative ${size} lg:mt-0 ml-auto mr-auto mt-10`}>
       <div className="px-2 py-4 flex gap-2">
         <div className={styles.circleRed}></div>
         <div className={styles.circleYellow}></div>
         <div className={styles.circleGreen}></div>
       </div>
-      <div className={`${styles.video} relative`}>
-        <img src={img} className="object-cover" />
+      <div className={`${styles.video} relative lg:w-[520px]`}>
+        <img src={img} className="object-cover lg:w-[520px]" />
         {playBtn && (
-          <div className={styles.playBtn}>
+          <div className={"absolute bottom-[50%] left-[25px] translate-y-1/2 translate-x-1/2 lg:left-[115px]"}>
             <svg
               width="144"
               height="145"

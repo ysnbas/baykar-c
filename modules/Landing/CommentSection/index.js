@@ -1,10 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./style.module.css";
 import { COMMENT_CARD } from "@/constant/landing";
 
 export default function CommentSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [startX, setStartX] = useState(null);
+  const containerRef = useRef(null);
+
+  const handleTouchStart = (event) => {
+    setStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event) => {
+    if (!startX) {
+      return;
+    }
+
+    const currentX = event.touches[0].clientX;
+    const diff = startX - currentX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentIndex < COMMENT_CARD.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      } else if (diff < 0 && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+
+      setStartX(null);
+    }
+  };
 
   const handlePrev = () => {
     const newIndex =
@@ -17,10 +42,12 @@ export default function CommentSection() {
     setCurrentIndex(newIndex);
   };
   return (
-    <div className="px-20 pb-20 pt-20 flex flex-col justify-between w-full h-commentHeight relative overflow-hidden">
-      <div className="flex justify-between ">
-        <div className="text-xl font-bold">Because they love us</div>
-        <div className="flex">
+    <div className="px-8 lg:px-20 pb-20 pt-20 flex flex-col justify-between w-full h-commentHeight relative overflow-hidden">
+      <div className="lg:flex justify-between ">
+        <div className="text-lg3 text-center lg:text-start lg:text-xl font-bold">
+          Because they love us
+        </div>
+        <div className="flex hidden lg:flex">
           <div>
             <button onClick={() => handlePrev()}>
               <svg
@@ -59,10 +86,18 @@ export default function CommentSection() {
           </div>
         </div>
       </div>
-      <div className={`${styles.card} w-full`}>
+      <div
+        className={`${styles.card} w-full`}
+        ref={containerRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
         <div
           className={`grid grid-cols-7 grid-rows-1 gap-16 absolute w-commentCardWidth -left-48 -right-48 ${styles.commentContainer}`}
-          style={{ transform: `translateX(-${currentIndex * 384}px)`,transition: "transform 0.5s"}}
+          style={{
+            transform: `translateX(-${currentIndex * 384}px)`,
+            transition: "transform 0.5s",
+          }}
         >
           {COMMENT_CARD.map((item, index) => (
             <div

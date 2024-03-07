@@ -1,23 +1,62 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./style.module.css";
 import { COLLECTION_CATEGORIES } from "@/constant/landing";
 
 export default function CollectionSection() {
   const [isActive, setIsActive] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startX, setStartX] = useState(null);
+  const containerRef = useRef(null);
+
+  const handleTouchStart = (event) => {
+    setStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event) => {
+    if (!startX) {
+      return;
+    }
+
+    const currentX = event.touches[0].clientX;
+    const diff = startX - currentX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentIndex < COLLECTION_CATEGORIES.length - 1) {
+        setCurrentIndex(currentIndex + 1);
+      } else if (diff < 0 && currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+      }
+
+      setStartX(null);
+    }
+  };
   return (
-    <div className="px-20 pt-32 pb-20 flex flex-col gap-36">
+    <div className="px-8 lg:px-20 pt-32 pb-20 flex flex-col gap-20 lg:gap-36 overflow-hidden lg:overflow-auto">
       <div className="flex flex-col gap-8">
-        <h1 className="text-xxl font-bold">Grow your collection</h1>
-        <p className="text-lg font-light">
+        <h1 className="text-lg3 text-center lg:text-start lg:text-xxl font-bold">
+          Grow your collection
+        </h1>
+        <p className="text-center lg:text-start text-lg font-light">
           Enim neque massa porta adipiscing elit. Sem libero id faucibus nibh
           amet dictum pellentesque sed. Eu non turpis risus odio sapien, fames
           sit rhoncus. Nec magna sed interdum sit purus tellus. Et volutpat
           proin neque placerat at bibendum quam tellus.
         </p>
       </div>
-      <div className="relative flex gap-40 justify-between">
-        <div className="flex flex-col gap-4">
+      <div
+        className="relative flex flex-col lg:flex-row gap-20 lg:gap-40 justify-between"
+        ref={containerRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
+        <div
+          className="flex flex-row lg:flex-col gap-4 sm:w-[3000px] lg:w-[299px] lg:!transform-none"
+          style={{
+            transform: `translateX(-${currentIndex * 384}px)`,
+            transition: "transform 0.5s",
+          }}
+        >
           {COLLECTION_CATEGORIES.map((category, index) => (
             <div
               key={index}
@@ -27,7 +66,7 @@ export default function CollectionSection() {
               onClick={() => setIsActive(category.id)}
             >
               {category.icon}
-              <span className="text-darkBlue text-lg font-bold w-44 mt-1">
+              <span className="text-darkBlue text-lg font-bold w-48 mt-1">
                 {category.title}
               </span>
               {isActive === category.id && (
@@ -49,39 +88,45 @@ export default function CollectionSection() {
         </div>
         <div className="relative flex mr-[150px]">
           <div>
-            <div className={`${styles.window} relative w-[759px]`}>
+            <div
+              className={`${styles.window} relative w-[238px] lg:w-[759px] `}
+            >
               <div className="px-2 py-4 flex gap-2">
                 <div className={styles.circleRed}></div>
                 <div className={styles.circleYellow}></div>
                 <div className={styles.circleGreen}></div>
               </div>
-              <div className={`${styles.video} relative h-[410px]`}>
+              <div
+                className={`${styles.video} relative h-[200px] lg:h-[410px]`}
+              >
                 <img
                   src={"/images/windowImage.jpeg"}
-                  className="object-cover w-full h-[400px]"
+                  className="object-cover w-full h-[190px] lg:h-[400px]"
                 />
               </div>
             </div>
           </div>
           <div className="absolute z-10 left-20 top-20">
-            <div className={`${styles.window} relative w-[759px]`}>
+            <div className={`${styles.window} relative w-[238px] lg:w-[759px]`}>
               <div className="px-2 py-4 flex gap-2">
                 <div className={styles.circleRed}></div>
                 <div className={styles.circleYellow}></div>
                 <div className={styles.circleGreen}></div>
               </div>
-              <div className={`${styles.video} relative h-[410px]`}>
+              <div
+                className={`${styles.video} relative h-[200px] lg:h-[410px]`}
+              >
                 <img
                   src={"/images/buycardimg2.jpeg"}
-                  className="object-cover w-full h-[400px]"
+                  className="object-cover w-full h-[190px] lg:h-[400px]"
                 />
               </div>
             </div>
           </div>
-          <div className="absolute z-20 px-2 py-2 rounded-lg shadow-lg bg-white left-[642px] top-48 w-72 h-[286px]">
+          <div className="absolute z-20 px-2 py-2 rounded-lg shadow-lg bg-white left-[186px] lg:left-[642px] top-[140px] lg:top-48 w-[210px] h-[210px] lg:h-[286px]">
             <img
               src="/images/ironbat.jpeg"
-              className="rounded-lg h-[270px] w-72"
+              className="rounded-lg h-[167px] lg:h-[270px] w-72"
             />
           </div>
         </div>

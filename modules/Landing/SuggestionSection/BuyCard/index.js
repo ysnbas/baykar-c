@@ -4,9 +4,9 @@ import Button from "@/component/Button";
 
 export default function BuyCard() {
   return (
-    <div className="grid gap-12 grid-cols-3 grid-rows-1">
+    <div className="grid gap-12 grid-cols-1 grid-rows-3 lg:grid-cols-3 lg:grid-rows-1">
       <div className="relative">
-        <div className={`flex flex-col gap-4 ${styles.card}`}>
+        <div className={`flex flex-col gap-4 w-[100%] lg:w-[100%] ${styles.card}`}>
           <div>
             <img src={"/images/buycardimg1.jpeg"} alt={"shoes"} />
           </div>
@@ -25,7 +25,7 @@ export default function BuyCard() {
         <div className={styles.pink}></div>
       </div>
       <div className="relative">
-        <div className={`flex flex-col gap-4 ${styles.card}`}>
+        <div className={`flex flex-col gap-4 w-[100%] lg:w-[100%] ${styles.card}`}>
           <div>
             <img src={"/images/buycardimg2.jpeg"} alt={"shoes"} />
           </div>
@@ -42,10 +42,10 @@ export default function BuyCard() {
           </div>
         </div>
         <div className={styles.blue}></div>
-        <div className={styles.orange}></div>
+        <div className={`lg:${styles.orange}`}></div>
       </div>
       <div className="relative">
-        <div className={`flex flex-col gap-4 ${styles.card}`}>
+        <div className={`flex flex-col gap-4 w-[100%] lg:w-[100%] ${styles.card}`}>
           <div>
             <img src={"/images/buycardimg3.jpeg"} alt={"shoes"} />
           </div>
@@ -61,7 +61,7 @@ export default function BuyCard() {
             <Button text={"Buy Now"} color={"text-white"} size={"w-full"} />
           </div>
         </div>
-        <div className={styles.green}></div>
+        <div className={`lg:${styles.green}`}></div>
         <div className={styles.purple}></div>
       </div>
     </div>

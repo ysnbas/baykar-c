@@ -1,6 +1,4 @@
 .card {
-  height: 496px;
-  padding: 80px;
   border-radius: 30px;
   box-shadow: 0px 0px 10px 0px #00000012;
   box-shadow: 0px 20px 25px -5px #0000001a;
@@ -11,11 +9,6 @@
   list-style: none;
   padding: 0;
   margin: 0;
-}
-.card ul li {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 .pink,
 .red,
@@ -31,7 +24,6 @@
   width: 218px;
   height: 218px;
   top: 208px;
-  left: 433px;
   border-radius: 50px;
   background: #be185d;
 }
@@ -47,7 +39,6 @@
   width: 59px;
   height: 60px;
   top: -137px;
-  left: 420px;
   border-radius: 50px;
   background: #0369a1;
   z-index: 0;
@@ -56,7 +47,6 @@
   width: 666.28px;
   height: 217.93px;
   top: 62.950000000000045px;
-  left: -69px;
   rotate: 127deg;
   background: #fde68a;
 }
@@ -64,8 +54,6 @@
   background: #a21caf;
   width: 74px;
   height: 74px;
-  top: 279px;
-  left: 396px;
   border-radius: 30px;
 }
 .green {

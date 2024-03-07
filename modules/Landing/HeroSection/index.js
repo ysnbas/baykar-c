@@ -5,10 +5,10 @@ import styles from "./style.module.css";
 
 export default function HeroSection() {
   return (
-    <div className="px-20 py-6 flex justify-between items-center w-full h-heroHeight gap-8">
-      <div className="flex flex-col gap-8 w-full">
-        <h1 className="text-xxl font-bold">Collectible Sneakers</h1>
-        <p className="text-lg font-light">
+    <div className="px-4 lg:px-20 py-6 flex flex-col lg:flex-row justify-between items-center w-full h-reasonHeight lg:h-heroHeight gap-8">
+      <div className="flex flex-col items-center lg:items-start gap-8 w-full">
+        <h1 className="text-xxl text-center lg:text-start lg:text-xl font-bold">Collectible Sneakers</h1>
+        <p className="text-base text-center lg:text-start lg:text-lg font-light">
           Sit elit feugiat turpis sed integer integer accumsan turpis. Sed
           suspendisse nec lorem mauris. Pharetra, eu imperdiet ipsum ultrices
           amet.
@@ -41,7 +41,7 @@ export default function HeroSection() {
       </div>
       <div className="relative">
         <img
-          className={styles.shoesImage}
+          className="absolute z-10 object-contain"
           src={"/images/ayakkabi.png"}
           alt="sneakers"
         />
