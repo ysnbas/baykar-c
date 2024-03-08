@@ -15,7 +15,7 @@ module.exports = {
       },
     },
     fontSize: {
-      lg: ["14px", "20px"],
+      // lg: ["14px", "20px"],
       base: ["16px", "24px"],
       lg: ["20px", "28px"],
       lg2: ["24px", "26.4px"],
@@ -33,6 +33,7 @@ module.exports = {
       white: "#ffffff",
       grey: "#475569",
       darkBlue: "#0F172A",
+      brown: "#78350F",
     },
     height: {
       heroHeight: "583px",
@@ -50,6 +51,7 @@ module.exports = {
       white: "#ffffff",
       lightGrey: "#E2E8F0",
       darkBlue: "#0F172A",
+      lightGrey2: "#F0F3FF",
     },
   },
   plugins: [],
