@@ -1,3 +1,5 @@
+<b><h1>İlk açılış sayfası "landing page" olarak ayarlandı. Quiz için "http://localhost:3000/pages/Quiz" url'ini kullanmalısınız.</h1></b>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
