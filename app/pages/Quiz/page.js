@@ -13,6 +13,7 @@ export default function QuizPage() {
   const [answers, setAnswers] = useState(null);
   const [clickableTime, setClickableTime] = useState(10);
   const [questionTime, setQuestionTime] = useState(20);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
     getQuiz().then((res) => {
@@ -69,20 +70,22 @@ export default function QuizPage() {
   }, [clickable, currentQuestionIndex, quiz, questionTime]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (clickableTime > 0) {
-        setClickableTime((prevTime) => prevTime - 1);
-      } else {
+    if (start) {
+      const timer = setTimeout(() => {
+        if (clickableTime > 0) {
+          setClickableTime((prevTime) => prevTime - 1);
+        } else {
+          setClickable(true);
+        }
+      }, 1000);
+
+      if (clickableTime === 0) {
         setClickable(true);
       }
-    }, 1000);
 
-    if (clickableTime === 0) {
-      setClickable(true);
+      return () => clearTimeout(timer);
     }
-
-    return () => clearTimeout(timer);
-  }, [clickableTime]);
+  }, [clickableTime, start]);
 
   const renderQuestions = () => {
     return (
@@ -126,9 +129,7 @@ export default function QuizPage() {
             <tbody>
               {answers.map((item, index) => (
                 <tr key={index}>
-                  <td className="border text-darkBlue px-4 py-2">
-                    {item.id}
-                  </td>
+                  <td className="border text-darkBlue px-4 py-2">{item.id}</td>
                   <td className="border text-darkBlue px-4 py-2">
                     {item.answer}
                   </td>
@@ -145,7 +146,23 @@ export default function QuizPage() {
     <div className="px-10 py-10 sm:px-20 sm:py-20 flex items-center justify-center h-[100vh]">
       {quiz && (
         <CardWrapper>
-          {finished ? renderTable() : renderQuestions()}
+          {finished ? (
+            renderTable()
+          ) : start ? (
+            renderQuestions()
+          ) : (
+            <div className="flex justify-center flex-col gap-5">
+              <div className="text-lg2 font-bold text-black text-center">
+                Click the button to get started
+              </div>
+              <button
+                onClick={() => setStart(true)}
+                className="bg-brown text-white px-5 py-2 rounded-md"
+              >
+                Start Quiz
+              </button>
+            </div>
+          )}
         </CardWrapper>
       )}
     </div>
