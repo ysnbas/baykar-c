@@ -11,8 +11,8 @@ export default function QuizPage() {
   const [clickable, setClickable] = useState(false);
   const [finished, setFinished] = useState(false);
   const [answers, setAnswers] = useState(null);
-  const [clickableTime, setClickableTime] = useState(5);
-  const [questionTime, setQuestionTime] = useState(10);
+  const [clickableTime, setClickableTime] = useState(10);
+  const [questionTime, setQuestionTime] = useState(20);
 
   useEffect(() => {
     getQuiz().then((res) => {
@@ -31,8 +31,8 @@ export default function QuizPage() {
 
   const resetTimer = () => {
     setClickable(false);
-    setClickableTime(5);
-    setQuestionTime(10);
+    setClickableTime(10);
+    setQuestionTime(20);
   };
 
   const goToNextQuestion = () => {
